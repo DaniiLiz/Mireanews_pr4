@@ -1,0 +1,131 @@
+/* Глобальные сбросы и базовые стили */
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;700&family=Rajdhani:wght@500;700&display=swap');
+
+:root {
+  /* Цветовая схема */
+  --neon-cyan: #00f3ff;
+  --neon-purple: #7d12ff;
+  --neon-pink: #ff00ff;
+  --neon-green: #00ff88;
+  --dark-bg: #050510;
+  --darker-bg: #030308;
+  --card-bg: rgba(10, 10, 26, 0.8);
+
+  /* Шрифты */
+  --font-primary: 'Rajdhani', 'Courier New', monospace;
+  --font-secondary: 'Bai Jamjuree', 'Arial Narrow', sans-serif;
+}
+
+/* Базовые стили */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--dark-bg) !important;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-secondary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image:
+          radial-gradient(circle at 20% 30%, rgba(0, 243, 255, 0.05) 0%, transparent 20%),
+          radial-gradient(circle at 80% 70%, rgba(125, 18, 255, 0.05) 0%, transparent 20%);
+}
+
+/* Типография */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+a {
+  color: var(--neon-green);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* Элементы форм */
+input, textarea, select {
+  background-color: rgba(0, 15, 30, 0.7) !important;
+  border: 1px solid var(--neon-cyan) !important;
+  color: var(--neon-cyan) !important;
+  padding: 0.75rem 1rem !important;
+  font-family: var(--font-secondary) !important;
+  margin-bottom: 1rem !important;
+  width: 100% !important;
+}
+
+/* Скроллбары */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: var(--darker-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+          45deg,
+          var(--neon-cyan),
+          var(--neon-purple)
+  );
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Анимации */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 22%, 24%, 55% {
+    opacity: 0.5;
+  }
+}
+
+.flicker {
+  animation: flicker 3s infinite;
+}
+
+/* Эффект цифрового дождя (опционально) */
+.digital-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+          linear-gradient(rgba(0, 243, 255, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: -1;
+  animation: rain-fall 60s linear infinite;
+}
+
+@keyframes rain-fall {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
+}
